@@ -75,11 +75,7 @@ export default class Siema {
    * @returns {string} - Transform property supported by client.
    */
   static webkitOrNot() {
-    const style = document.documentElement.style;
-    if (typeof style.transform === 'string') {
-      return 'transform';
-    }
-    return 'WebkitTransform';
+    return 'marginLeft';
   }
 
   /**
@@ -253,7 +249,7 @@ export default class Siema {
         const offset = (this.config.rtl ? 1 : -1) * moveTo * (this.selectorWidth / this.perPage);
         const dragDistance = this.config.draggable ? this.drag.endX - this.drag.startX : 0;
 
-        this.sliderFrame.style[this.transformProperty] = `translate3d(${offset + dragDistance}px, 0, 0)`;
+        this.sliderFrame.style[this.transformProperty] = `${offset + dragDistance}px`;
         this.currentSlide = mirrorSlideIndex - howManySlides;
       }
       else {
@@ -298,7 +294,7 @@ export default class Siema {
         const offset = (this.config.rtl ? 1 : -1) * moveTo * (this.selectorWidth / this.perPage);
         const dragDistance = this.config.draggable ? this.drag.endX - this.drag.startX : 0;
 
-        this.sliderFrame.style[this.transformProperty] = `translate3d(${offset + dragDistance}px, 0, 0)`;
+        this.sliderFrame.style[this.transformProperty] = `${offset + dragDistance}px`;
         this.currentSlide = mirrorSlideIndex + howManySlides;
       }
       else {
@@ -372,12 +368,12 @@ export default class Siema {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           this.enableTransition();
-          this.sliderFrame.style[this.transformProperty] = `translate3d(${offset}px, 0, 0)`;
+          this.sliderFrame.style[this.transformProperty] = `${offset}px`;
         });
       });
     }
     else {
-      this.sliderFrame.style[this.transformProperty] = `translate3d(${offset}px, 0, 0)`;
+      this.sliderFrame.style[this.transformProperty] = `${offset}px`;
     }
   }
 
@@ -487,7 +483,7 @@ export default class Siema {
       const currentOffset = currentSlide * (this.selectorWidth / this.perPage);
       const dragOffset = (this.drag.endX - this.drag.startX);
       const offset = this.config.rtl ? currentOffset + dragOffset : currentOffset - dragOffset;
-      this.sliderFrame.style[this.transformProperty] = `translate3d(${(this.config.rtl ? 1 : -1) * offset}px, 0, 0)`;
+      this.sliderFrame.style[this.transformProperty] = `${(this.config.rtl ? 1 : -1) * offset}px`;
     }
   }
 
@@ -546,7 +542,7 @@ export default class Siema {
       const currentOffset = currentSlide * (this.selectorWidth / this.perPage);
       const dragOffset = (this.drag.endX - this.drag.startX);
       const offset = this.config.rtl ? currentOffset + dragOffset : currentOffset - dragOffset;
-      this.sliderFrame.style[this.transformProperty] = `translate3d(${(this.config.rtl ? 1 : -1) * offset}px, 0, 0)`;
+      this.sliderFrame.style[this.transformProperty] = `${(this.config.rtl ? 1 : -1) * offset}px`;
     }
   }
 

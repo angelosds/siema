@@ -14,7 +14,7 @@
     "webpack": "3.10.0"
   },
   "scripts": {
-    "build": "webpack && cp dist/siema.min.js docs/assets",
+    "build": "webpack",
     "dev": "webpack --progress --colors --watch"
   },
   "files": [
